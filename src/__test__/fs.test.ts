@@ -1,5 +1,3 @@
-describe('Test the FileSystem module', () => {
-    // const testCases = [{ path: '', expectedOutput: '' }];
-    // test.each(testCases)(`Test %p`, (path, expectedOutput) => {
-    // });
+test('adds 1 + 2 to equal 3', () => {
+    expect(1 + 2).toBe(3);
 });
