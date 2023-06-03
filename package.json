@@ -12,7 +12,7 @@
         "url": "https://github.com/nguyenngoclongdev/vscode-fs-browserify/issues"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
+        "registry": "https://registry.npmjs.org"
     },
     "sponsor": {
         "url": "https://www.paypal.me/longnguyenngoc"
