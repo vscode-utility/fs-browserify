@@ -23,6 +23,7 @@ jobs:
               with:
                   node-version: 16.x
                   registry-url: https://registry.npmjs.org/
+                  scope: '@vscode-utility'
                   cache: 'pnpm'
 
             - name: Install dependency
@@ -52,6 +53,7 @@ jobs:
               with:
                   node-version: 16.x
                   registry-url: https://registry.npmjs.org/
+                  scope: '@vscode-utility'
                   cache: 'pnpm'
 
             - name: Install dependency
