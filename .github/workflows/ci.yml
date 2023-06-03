@@ -22,8 +22,6 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16.x
-                  registry-url: 'https://registry.npmjs.org/package'
-                  scope: '@vscode-utility'
                   cache: 'pnpm'
 
             - name: Install dependency
@@ -52,9 +50,9 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16.x
-                  registry-url: 'https://registry.npmjs.org/package'
-                  scope: '@vscode-utility'
                   always-auth: true
+                  registry-url: https://registry.npmjs.org
+                  scope: '@vscode-utility'
                   cache: 'pnpm'
 
             - name: Install dependency
