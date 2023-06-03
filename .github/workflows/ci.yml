@@ -1,0 +1,76 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    packages: write # publish package
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write # to create release (changesets/action)
+            pull-requests: write # to create pull request (changesets/action)
+        steps:
+            - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16.x
+                  registry-url: https://registry.npmjs.org/
+                  cache: 'pnpm'
+
+            - name: Install dependency
+              run: pnpm install --frozen-lockfile
+
+            - name: Check style and format
+              run: pnpm run lint
+
+            - name: Test package before publish
+              run: pnpm test
+
+    publish:
+        needs: [test]
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write # to create release (changesets/action)
+            pull-requests: write # to create pull request (changesets/action)
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+                  fetch-depth: 0
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16.x
+                  registry-url: https://registry.npmjs.org/
+                  cache: 'pnpm'
+
+            - name: Install dependency
+              run: pnpm install --frozen-lockfile
+
+            - name: Compile package
+              run: pnpm ci:compile
+
+            - name: Create Release Pull Request or publish package
+              id: changesets
+              uses: changesets/action@v1
+              with:
+                  commit: 'chore: update versions'
+                  title: 'chore: update versions'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish to Github Package
+              if: steps.changesets.outputs.hasChangesets == 'true'
+              run: pnpm ci:publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
