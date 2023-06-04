@@ -1,5 +1,11 @@
 # @vscode-utility/fs-browserify
 
+## 1.0.3
+
+### Patch Changes
+
+- ae1dce2: support fs.watch() and fs.access()
+
 ## 1.0.2
 
 ### Patch Changes
