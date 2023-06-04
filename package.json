@@ -16,7 +16,11 @@
         "registry": "https://registry.npmjs.org"
     },
     "sponsor": {
-        "url": "https://www.paypal.me/longnguyenngoc"
+        "url": "https://ko-fi.com/nguyenngoclong"
+    },
+    "funding": {
+        "type": "individual",
+        "url": "https://ko-fi.com/nguyenngoclong"
     },
     "homepage": "https://nguyenngoclongdev.github.io",
     "categories": [
@@ -60,7 +64,10 @@
         "ts-jest": "^29.1.0",
         "typescript": "^5.0.4"
     },
-    "author": "Nguyen Ngoc Long",
+    "author": {
+        "name": "Nguyen Ngoc Long",
+        "url": "https://nguyenngoclongdev.github.io"
+    },
     "publisher": "nguyenngoclong",
     "license": "MIT"
 }
