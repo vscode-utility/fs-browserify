@@ -51,6 +51,8 @@ jobs:
               with:
                   node-version: 16.x
                   cache: 'pnpm'
+                  registry-url: 'https://registry.npmjs.org'
+                  scope: '@vscode-utility'
 
             - name: Install dependency
               run: pnpm install --frozen-lockfile
