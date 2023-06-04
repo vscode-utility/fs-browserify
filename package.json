@@ -12,9 +12,6 @@
     "bugs": {
         "url": "https://github.com/nguyenngoclongdev/vscode-fs-browserify/issues"
     },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org"
-    },
     "sponsor": {
         "url": "https://ko-fi.com/nguyenngoclong"
     },
