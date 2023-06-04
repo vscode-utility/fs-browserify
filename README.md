@@ -10,15 +10,32 @@
 
 # @vscode-utility/fs-browserify
 
-When developing vscode extensions, it is essential to ensure compatibility between the desktop and web versions of vscode (https://vscode.dev or https://github.dev). One way to achieve this is by using the `@vscode-utility/fs-browserify` package.
+When developing vscode extensions, it is essential to ensure compatibility between the desktop and web versions of vscode (https://vscode.dev or https://github.dev). 
 
-Using this package, you can access and manipulate files stored locally or remotely, making it easier to develop vscode extensions that work seamlessly on both the desktop and web versions of vscode. For instance, you can use fs.readDirectoryAsync(path) to retrieve all entries in a directory, and fs.statAsync(path) to obtain the metadata of a file.
+Using `@vscode-utility/fs-browserify`, you can access and manipulate files stored locally or remotely, making it easier to develop vscode extensions that work seamlessly on both the desktop and web versions of vscode.
 
-Overall, incorporating the `@vscode-utility/fs-browserify` package in your vscode extension development workflow can help you achieve full compatibility and enhance the user experience across different vscode platforms.
+If you find this package useful for your projects, please consider supporting me by [Buy Me a Coffee](https://ko-fi.com/D1D2LBPX9). It's a great way to help me maintain and improve this package in the future. Your support is truly appreciated!
 
-This package is maintained by the [Nguyen Ngoc Long](https://github.com/nguyenngoclongdev/).
+<a href='https://ko-fi.com/D1D2LBPX9' target='_blank'>
+    <img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee' />
+</a>
 
-You can find latest release in the [NPM](https://www.npmjs.com/package/@vscode-utility/fs-browserify)
+## Installation
+
+**npm**
+```sh
+npm install @vscode-utility/fs-browserify
+```
+
+**yarn**
+```sh
+yarn add @vscode-utility/fs-browserify
+```
+
+**pnpm**
+```sh
+pnpm add @vscode-utility/fs-browserify
+```
 
 ## Usage
 

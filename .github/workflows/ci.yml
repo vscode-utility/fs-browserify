@@ -23,8 +23,6 @@ jobs:
               with:
                   node-version: 16.x
                   cache: 'pnpm'
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Install dependency
               run: pnpm install --frozen-lockfile
@@ -53,8 +51,6 @@ jobs:
               with:
                   node-version: 16.x
                   cache: 'pnpm'
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Install dependency
               run: pnpm install --frozen-lockfile
@@ -75,4 +71,5 @@ jobs:
               if: steps.changesets.outputs.hasChangesets == 'true'
               run: pnpm ci:publish
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
