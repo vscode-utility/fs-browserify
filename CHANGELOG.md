@@ -1,5 +1,11 @@
 # @vscode-utility/fs-browserify
 
+## 1.0.4
+
+### Patch Changes
+
+- dbfa7b9: remove only-allow script
+
 ## 1.0.3
 
 ### Patch Changes
