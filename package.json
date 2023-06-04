@@ -33,7 +33,6 @@
         "module"
     ],
     "scripts": {
-        "preinstall": "npx only-allow pnpm",
         "esbuild-base": "esbuild ./src/index.ts --bundle --outfile=dist/index.js --external:vscode --format=cjs --platform=node",
         "compile": "pnpm esbuild-base --sourcemap",
         "watch": "pnpm esbuild-base --sourcemap --watch",
