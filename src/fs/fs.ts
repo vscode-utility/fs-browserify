@@ -1,5 +1,6 @@
-import { FileStat, FileType, Uri, workspace } from 'vscode';
-const { fs: wfs } = workspace;
+import { FileStat, FileSystemWatcher, FileType, Uri, workspace } from 'vscode';
+import { FileAccess } from '.';
+const { fs: wfs, createFileSystemWatcher } = workspace;
 
 /**
  * The file system interface allows extensions to manipulate both local and remote files,
@@ -149,7 +150,7 @@ export class FileSystem {
      * Copy files or folders.
      *
      * @param source The existing file.
-     * @param destination The destination location.
+     * @param target The destination location.
      * @param options Defines if existing files should be overwritten.
      */
     copyAsync = async (source: Uri, target: Uri, options?: { overwrite?: boolean }): Promise<void> => {
@@ -185,12 +186,12 @@ export class FileSystem {
     };
 
     /**
-     * Truncates the file to change the size of the file i.e either increase or decrease the file size
+     * Truncates the file to change the size of the file i.e either increase or decrease the file size.
      *
-     * @param filePath This property contains the path of the target file, which can be either a string, buffer or URL.
-     * @param length This property sets the file length for truncation, with an optional integer input. If not specified, the default value is 0.
+     * @param path The path of the target file.
+     * @param length The file length for truncation, with an optional integer input. If not specified, the default value is 0.
      */
-    truncateAsync = async (path: string | Uri, length: number) => {
+    truncateAsync = async (path: string | Uri, length: number = 0) => {
         try {
             // Read file content
             const uri = this.getUri(path);
@@ -202,5 +203,41 @@ export class FileSystem {
         } catch (err) {
             console.error(err);
         }
+    };
+
+    /**
+     * Watch the specified file for changes continuously.
+     *
+     * @param pattern A pattern expressed in glob syntax that is used to match the absolute paths of files that have been created, changed, or deleted.
+     * @param ignoreCreateEvents Ignore when files have been created.
+     * @param ignoreChangeEvents Ignore when files have been changed.
+     * @param ignoreDeleteEvents Ignore when files have been deleted.
+     * @return A new file system watcher instance.
+     */
+    watch = (
+        pattern: string,
+        options?: {
+            ignoreCreateEvents?: boolean;
+            ignoreChangeEvents?: boolean;
+            ignoreDeleteEvents?: boolean;
+        }
+    ): FileSystemWatcher => {
+        const { ignoreCreateEvents = false, ignoreChangeEvents = false, ignoreDeleteEvents = false } = options || {};
+        return createFileSystemWatcher(pattern, ignoreCreateEvents, ignoreChangeEvents, ignoreDeleteEvents);
+    };
+
+    /**
+     * Check the permissions of a given file
+     *
+     * @param path The path of the file.
+     * @return `FileAccess.Write` if the file system supports writing, `FileAccess.Read` if it is read-only, and `FileAccess.None` if the editor is unaware of the file system.
+     */
+    access = (path: string | Uri): FileAccess => {
+        const uri = this.getUri(path);
+        const isWritable = this.isWritableFileSystem(uri.scheme);
+        if (isWritable === undefined) {
+            return FileAccess.None;
+        }
+        return isWritable ? FileAccess.Write : FileAccess.Read;
     };
 }
