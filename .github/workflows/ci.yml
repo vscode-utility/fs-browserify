@@ -30,8 +30,10 @@ jobs:
             - name: Check style and format
               run: pnpm run lint
 
-            - name: Test package before publish
-              run: pnpm test
+            - name: Test package
+              uses: coactions/setup-xvfb@v1
+              with:
+                  run: pnpm test
 
     publish:
         needs: [test]
