@@ -1,5 +1,11 @@
 # @vscode-utility/fs-browserify
 
+## 1.0.5
+
+### Patch Changes
+
+- eea31a1: remove peerDependencies to avoid conflicting dependency
+
 ## 1.0.4
 
 ### Patch Changes
