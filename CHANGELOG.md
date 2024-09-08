@@ -1,5 +1,12 @@
 # @vscode-utility/fs-browserify
 
+## 1.0.7
+
+### Patch Changes
+
+- b6d9192: feat: add function to read and write json file
+- 577e764: fix: update option interface
+
 ## 1.0.6
 
 ### Patch Changes
