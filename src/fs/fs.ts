@@ -105,6 +105,7 @@ export class FileSystem {
      *
      * @param path The file path.
      * @param {Object} options Pass in any [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback) options or set reviver for a [JSON reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
+     * @param {Object} options.throws (boolean, default: true). If JSON.parse throws an error, pass this error to the callback. If false, returns null for the object.
      * @return The json object.
      */
     readJsonAsync = async <T>(
@@ -165,6 +166,7 @@ export class FileSystem {
      * @param {Object} options Specifield option to write json (also accepts [fs.writeFile() options](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback))
      * @param {Object} options.spaces Number of spaces to indent; or a string to use for indentation (i.e. pass '\t' for tab indentation).
      * @param {Object} options.EOL Set EOL character. Default is \n.
+     * @param {Object} options.finalEOL Set to save the file with EOL at the end. Default is true.
      * @param {Object} options.replacer [JSON Replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#The_replacer_parameter)
      */
     writeJsonAsync = async (
@@ -182,6 +184,7 @@ export class FileSystem {
             };
             // eslint-disable-next-line @typescript-eslint/naming-convention
             EOL?: string;
+            finalEOL?: boolean;
             spaces?: string;
             replacer?: (key: string, value: any) => any;
         }
