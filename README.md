@@ -59,11 +59,17 @@ await fs.createDirectoryAsync(path);
 // Read the full content of a file
 await fs.readFileAsync(path, options);
 
+// Reads a JSON file and then parses it into an object.
+await fs.readJsonAsync(path, options);
+
 // Append the provided data to a file
 await fs.appendFileAsync(path, content);
 
 // Write data to a file and replace its full contents
 await fs.writeFileAsync(path, content);
+
+// Writes an object to a JSON file.
+await fs.writeJsonAsync(path, content, options);
 
 // Delete a file
 await fs.deleteAsync(path, options);
@@ -86,21 +92,23 @@ fs.access(path);
 
 ## Compare functions
 
-| @vscode-utility/fs-browserify | fs (node)         | fs (vscode api)        |
-| ----------------------------- | ----------------- | ---------------------- |
-| fs.`statAsync`()              | fs.`stat`()       | fs.`stat`()            |
-| fs.`readDirectoryAsync`()     | fs.`readDir`()    | fs.`readDirectory`()   |
-| fs.`createDirectoryAsync`()   | fs.`mkdir`()      | fs.`createDirectory`() |
-| fs.`readFileAsync`()          | fs.`readFile`()   | fs.`readFile`()        |
-| fs.`appendFileAsync`()        | fs.`appendFile`() | <sub>undefined</sub>   |
-| fs.`writeFileAsync`()         | fs.`writeFile`()  | fs.`writeFile`()       |
-| fs.`deleteAsync`()            | fs.`rmdir`()      | fs.`delete`()          |
-| fs.`renameAsync`()            | fs.`rename`()     | fs.`rename`()          |
-| fs.`copyAsync`()              | fs.`cp`()         | fs.`copy`()            |
-| fs.`existAsync`()             | fs.`exist`()      | <sub>undefined</sub>   |
-| fs.`truncateAsync`()          | fs.`truncate`()   | <sub>undefined</sub>   |
-| fs.`watch`()                  | fs.`watch`()      | <sub>undefined</sub>   |
-| fs.`access`()                 | fs.`access`()     | <sub>undefined</sub>   |
+| @vscode-utility/fs-browserify | fs (node)            | fs (vscode api)        |
+| ----------------------------- | -------------------- | ---------------------- |
+| fs.`statAsync`()              | fs.`stat`()          | fs.`stat`()            |
+| fs.`readDirectoryAsync`()     | fs.`readDir`()       | fs.`readDirectory`()   |
+| fs.`createDirectoryAsync`()   | fs.`mkdir`()         | fs.`createDirectory`() |
+| fs.`readFileAsync`()          | fs.`readFile`()      | fs.`readFile`()        |
+| fs.`readJsonAsync`()          | <sub>undefined</sub> | <sub>undefined</sub>   |
+| fs.`appendFileAsync`()        | fs.`appendFile`()    | <sub>undefined</sub>   |
+| fs.`writeFileAsync`()         | fs.`writeFile`()     | fs.`writeFile`()       |
+| fs.`writeJsonAsync`()         | <sub>undefined</sub> | <sub>undefined</sub>   |
+| fs.`deleteAsync`()            | fs.`rmdir`()         | fs.`delete`()          |
+| fs.`renameAsync`()            | fs.`rename`()        | fs.`rename`()          |
+| fs.`copyAsync`()              | fs.`cp`()            | fs.`copy`()            |
+| fs.`existAsync`()             | fs.`exist`()         | <sub>undefined</sub>   |
+| fs.`truncateAsync`()          | fs.`truncate`()      | <sub>undefined</sub>   |
+| fs.`watch`()                  | fs.`watch`()         | <sub>undefined</sub>   |
+| fs.`access`()                 | fs.`access`()        | <sub>undefined</sub>   |
 
 -   @vscode-utility/fs-browserify
 

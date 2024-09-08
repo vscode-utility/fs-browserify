@@ -1,5 +1,7 @@
+import jsonfile, { JFReadOptions, JFWriteOptions, Path } from 'jsonfile';
 import { FileStat, FileSystemWatcher, FileType, Uri, workspace } from 'vscode';
 import { FileAccess } from '.';
+
 const { fs: wfs, createFileSystemWatcher } = workspace;
 
 /**
@@ -91,6 +93,17 @@ export class FileSystem {
     };
 
     /**
+     * Reads a JSON file and then parses it into an object.
+     *
+     * @param path The file path.
+     * @param {Object} options Pass in any [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback) options or set reviver for a [JSON reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
+     * @return The json object.
+     */
+    readJsonAsync = async <T>(path: Path, options?: JFReadOptions): Promise<T> => {
+        return await jsonfile.readFile(path, options);
+    };
+
+    /**
      * Append the provided data to a file. If the file does not exist, a new one is created.
      *
      * @param path The file path.
@@ -120,6 +133,20 @@ export class FileSystem {
         const uri = this.getUri(path);
         const contentBytes = this.getContentBytes(content);
         await wfs.writeFile(uri, contentBytes);
+    };
+
+    /**
+     * Writes an object to a JSON file.
+     *
+     * @param path The file path.
+     * @param content The json content.
+     * @param {Object} options Specifield option to write json (also accepts [fs.writeFile() options](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback))
+     * @param {Object} options.spaces Number of spaces to indent; or a string to use for indentation (i.e. pass '\t' for tab indentation).
+     * @param {Object} options.EOL Set EOL character. Default is \n.
+     * @param {Object} options.replacer [JSON Replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#The_replacer_parameter)
+     */
+    writeJsonAsync = async (path: Path, content: any, options?: JFWriteOptions): Promise<void> => {
+        await jsonfile.writeFile(path, content, options);
     };
 
     /**
