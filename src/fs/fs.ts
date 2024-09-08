@@ -1,4 +1,12 @@
-import jsonfile, { JFReadOptions, JFWriteOptions, Path } from 'jsonfile';
+import {
+    readFile as fsReadFile,
+    readFileSync as fsReadFileSync,
+    writeFile as fsWriteFile,
+    writeFileSync as fsWriteFileSync,
+    PathLike
+} from 'fs';
+import jsonfile from 'jsonfile';
+import { Url } from 'url';
 import { FileStat, FileSystemWatcher, FileType, Uri, workspace } from 'vscode';
 import { FileAccess } from '.';
 
@@ -99,7 +107,21 @@ export class FileSystem {
      * @param {Object} options Pass in any [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback) options or set reviver for a [JSON reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
      * @return The json object.
      */
-    readJsonAsync = async <T>(path: Path, options?: JFReadOptions): Promise<T> => {
+    readJsonAsync = async <T>(
+        path: PathLike | Url,
+        options?: {
+            encoding?: string;
+            flag?: string;
+            throws?: boolean;
+            fs?: {
+                readFile: typeof fsReadFile;
+                readFileSync: typeof fsReadFileSync;
+                writeFile: typeof fsWriteFile;
+                writeFileSync: typeof fsWriteFileSync;
+            };
+            reviver?: (key: any, value: any) => any;
+        }
+    ): Promise<T> => {
         return await jsonfile.readFile(path, options);
     };
 
@@ -145,7 +167,25 @@ export class FileSystem {
      * @param {Object} options.EOL Set EOL character. Default is \n.
      * @param {Object} options.replacer [JSON Replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#The_replacer_parameter)
      */
-    writeJsonAsync = async (path: Path, content: any, options?: JFWriteOptions): Promise<void> => {
+    writeJsonAsync = async (
+        path: PathLike | Url,
+        content: any,
+        options?: {
+            encoding?: string;
+            mode?: string;
+            flag?: string;
+            fs?: {
+                readFile: typeof fsReadFile;
+                readFileSync: typeof fsReadFileSync;
+                writeFile: typeof fsWriteFile;
+                writeFileSync: typeof fsWriteFileSync;
+            };
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            EOL?: string;
+            spaces?: string;
+            replacer?: (key: string, value: any) => any;
+        }
+    ): Promise<void> => {
         await jsonfile.writeFile(path, content, options);
     };
 
