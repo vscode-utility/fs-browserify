@@ -1,5 +1,11 @@
 # @vscode-utility/fs-browserify
 
+## 1.0.9
+
+### Patch Changes
+
+- 0aae22b: update package name
+
 ## 1.0.8
 
 ### Patch Changes
