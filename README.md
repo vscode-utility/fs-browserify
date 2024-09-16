@@ -1,8 +1,8 @@
-[![CI](https://github.com/nguyenngoclongdev/vscode-fs-browserify/actions/workflows/ci.yml/badge.svg)](https://github.com/nguyenngoclongdev/vscode-fs-browserify/actions/workflows/ci.yml)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/nguyenngoclongdev/vscode-fs-browserify/)
+[![CI](https://github.com/vscode-utility/fs-browserify/actions/workflows/ci.yml/badge.svg)](https://github.com/vscode-utility/fs-browserify/actions/workflows/ci.yml)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/vscode-utility/fs-browserify/)
 
 [![npm version](https://img.shields.io/npm/v/@vscode-utility/fs-browserify.svg?style=flat-square)](https://www.npmjs.org/package/@vscode-utility/fs-browserify)
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/nguyenngoclongdev/vscode-fs-browserify)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/vscode-utility/fs-browserify)
 [![install size](https://img.shields.io/badge/dynamic/json?url=https://packagephobia.com/v2/api.json?p=@vscode-utility/fs-browserify&query=$.install.pretty&label=install%20size&style=flat-square)](https://packagephobia.now.sh/result?p=@vscode-utility/fs-browserify)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vscode-utility/fs-browserify?style=flat-square)](https://bundlephobia.com/package/@vscode-utility/fs-browserify@latest)
 [![npm downloads](https://img.shields.io/npm/dt/@vscode-utility/fs-browserify.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vscode-utility/fs-browserify)
@@ -16,11 +16,12 @@ Using `@vscode-utility/fs-browserify`, you can access and manipulate files store
 
 This library utilizes a portion of the [File System](https://code.visualstudio.com/api/references/vscode-api#FileSystem) provided by the [VS Code API](https://code.visualstudio.com/api/references/vscode-api).
 
-If you find this package useful for your projects, please consider supporting me by [Patreon](https://patreon.com/nguyenngoclong), [KO-FI](https://ko-fi.com/nguyenngoclong) or [Paypal](http://paypal.com/paypalme/longnguyenngoc). It's a great way to help me maintain and improve this tool in the future. Your support is truly appreciated!
+If you find this package useful for your projects, please consider supporting me by [Github](https://github.com/sponsors/nguyenngoclongdev), [Patreon](https://patreon.com/nguyenngoclong), [KO-FI](https://ko-fi.com/nguyenngoclong) or [Paypal](https://paypal.me/longnguyenngoc). It's a great way to help me maintain and improve this tool in the future. Your support is truly appreciated!
 
-[![KO-FI](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/nguyenngoclong)
-[![Paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](http://paypal.com/paypalme/longnguyenngoc)
+[![Github](https://img.shields.io/badge/Github-F15689?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/nguyenngoclongdev)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/nguyenngoclong)
+[![KO-FI](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/nguyenngoclong)
+[![Paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/longnguyenngoc)
 
 ## Installation
 
@@ -126,7 +127,7 @@ fs.access(path);
 ## Feedback
 
 If you discover a bug, or have a suggestion for a feature request, please
-submit an [issue](https://github.com/nguyenngoclongdev/vscode-fs-browserify/issues).
+submit an [issue](https://github.com/vscode-utility/fs-browserify/issues).
 
 ## LICENSE
 

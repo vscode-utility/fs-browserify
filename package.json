@@ -7,19 +7,19 @@
     "private": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/nguyenngoclongdev/vscode-fs-browserify"
+        "url": "https://github.com/vscode-utility/fs-browserify"
     },
     "bugs": {
-        "url": "https://github.com/nguyenngoclongdev/vscode-fs-browserify/issues"
+        "url": "https://github.com/vscode-utility/fs-browserify/issues"
     },
     "sponsor": {
-        "url": "https://ko-fi.com/nguyenngoclong"
+        "url": "https://github.com/sponsors/nguyenngoclongdev"
     },
     "funding": {
         "type": "individual",
-        "url": "https://ko-fi.com/nguyenngoclong"
+        "url": "https://github.com/sponsors/nguyenngoclongdev"
     },
-    "homepage": "https://github.com/nguyenngoclongdev/vscode-fs-browserify",
+    "homepage": "https://github.com/vscode-utility/fs-browserify",
     "categories": [
         "Other"
     ],
