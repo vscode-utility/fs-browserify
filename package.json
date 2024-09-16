@@ -2,7 +2,7 @@
     "name": "@vscode-utility/fs-browserify",
     "displayName": "@vscode-utility/fs-browserify",
     "description": "The `fs` module compatible for VS Code Web Extensions",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "main": "./dist/index.js",
     "private": false,
     "repository": {
